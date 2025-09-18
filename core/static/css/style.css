@@ -1,0 +1,44 @@
+body {
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: #f4f4f4;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: #fff;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+li.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.actions a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #007bff;
+}

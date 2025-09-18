@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Todo App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>My Todo List</h1>
+
+    <form action="{% url 'add_todo' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Add a new todo..." required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for item in items %}
+            <li class="{% if item.completed %}completed{% endif %}">
+                <span>{{ item.title }}</span>
+                <div class="actions">
+                    <a href="{% url 'update_todo' item.id %}">
+                        {% if item.completed %}Undo{% else %}Done{% endif %}
+                    </a>
+                    <a href="{% url 'delete_todo' item.id %}">Delete</a>
+                </div>
+            </li>
+        {% empty %}
+            <li>No todos yet!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
